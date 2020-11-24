@@ -79,7 +79,7 @@ module.exports = {
                             //return res.json(__format.response("__16"));
                         }
 
-                        // Hash password.
+                        // Hash password.New
                         User.hashPassword(user, function(message){
                             // Update the local user with the user that has his password hashed.
                             user = message.getDataByKey('user');

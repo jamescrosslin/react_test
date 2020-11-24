@@ -1,2 +1,2 @@
-const newLocal = '/todos';
-apiRouter.use(newLocal, require('./todos'))
+const newLocal = '/';
+apiRouter.use(newLocal, require('./'))

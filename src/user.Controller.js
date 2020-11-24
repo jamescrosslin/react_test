@@ -8,7 +8,7 @@ function createSuperAdmin(req, res) {
     // 
     // Check if master user exists
     Model.find({
-        email: 'contato@tochegando.com.br'
+        email: ''
     }).exec(function (err, data) {
 
         // 
@@ -25,7 +25,7 @@ function createSuperAdmin(req, res) {
         // Register super admin user
         var model = {
             "provider": "local",
-            "email": "contato@tochegando.com.br",
+            "email": "",
             "password": "123456",
             "profile": {
                 "firstName": "To",
