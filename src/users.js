@@ -106,6 +106,7 @@ var express = require('express');
 
     module.exports = router;
 
+)
 
 import * as React from "react";
 import { List, Datagrid, TextField, EmailField } from 'react-admin';

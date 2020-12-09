@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
-    "eslint": "^7.14.0",
+    "eslint": "^7.15.0",
     "eslint-plugin-react": "^7.21.5"
   },
   "scripts": {
