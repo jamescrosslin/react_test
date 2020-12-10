@@ -23,6 +23,23 @@ import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
 
+unction Dashboard(props) {
+ 
+  // handle click event of logout button
+  const handleLogout = () => {    
+    props.history.push('/login');
+  }
+ 
+  return (
+    <div>
+      Welcome User!<br /><br />
+      <input type="button" onClick={handleLogout} value="Logout" />
+    </div>
+  );
+}
+ 
+export default Dashboard;
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">

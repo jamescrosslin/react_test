@@ -11,6 +11,34 @@ import ProductListView from 'src/views/product/ProductListView';
 import RegisterView from 'src/views/auth/RegisterView';
 import SettingsView from 'src/views/settings/SettingsView';
 
+import React from 'react';
+import { Route, Router } from 'react-router-dom';
+import Home from './Home';
+import Callback from './Callback';
+import Auth from './auth';
+import history from './history';
+
+const auth = new Auth();
+
+const handleAuthentication = (nextState, replace) => {
+  if (/access_token|id_token|error/.test(nextState.location.hash)) {
+    auth.handleAuthentication();
+  }
+}
+
+const Routes = () => (
+  <Router history={history} component={Home}>
+    <div>
+      <Route exact path="/" render={(props) => <Home auth={auth} {...props} />} />
+      <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
+      <Route path="/callback" render={(props) => {
+        handleAuthentication(props);
+        return <Callback {...props} />
+      }}/>
+    </div>
+  </Router>
+);
+
 const routes = [
   {
     path: 'app',
@@ -36,5 +64,35 @@ const routes = [
     ]
   }
 ];
+
+import {
+  Route,
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+} from "react-router-dom";import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import NotFound from "./Pages/NotFound/NotFound";const Routes = (props) => (
+  <Router {...props}>
+    <Switch>
+      <Route path="/login">
+        <Login />
+      </Route>
+      <Route path="/register">
+        <Register />
+      </Route>
+      <Route path="/dashboard">
+        <Dashboard />
+      </Route>
+      <Route exact path="/">
+        <Redirect to="/dashboard" />
+      </Route>
+      <Route path="*">
+        <NotFound />
+      </Route>
+    </Switch>
+  </Router>
+);
 
 export default routes;

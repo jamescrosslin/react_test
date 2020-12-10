@@ -10,4 +10,4 @@ class Logout extends Component{
                 Now loggedOut; 
             </div>
         )
-    }
+    }}

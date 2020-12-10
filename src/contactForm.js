@@ -46,7 +46,7 @@ import { setContacts } from './actionCreators'; const schema = yup.object({
     contact,
     onCancelAdd,
     onCancelEdit,
-}) {
+});
     const handleSubmit = async (evt) => {
         const isValid = await schema.validate(evt);
         if (!isValid) {
@@ -61,7 +61,7 @@ import { setContacts } from './actionCreators'; const schema = yup.object({
         const response = await getContacts();
         setContacts(response.data);
         onSave();
-    }return (
+    ; (
         <div className="form">
             <Formik
                 validationSchema={schema}
@@ -111,6 +111,7 @@ import { setContacts } from './actionCreators'; const schema = yup.object({
                                     <InputGroup>
                                         <Form.Control>
                                         </Form.Control>
+    
 type="text"
 placeholder="Address"
 aria-describedby="inputGroupPrepend"
@@ -118,7 +119,7 @@ name="address"
 value={values.address || ''}
 onChange={handleChange}
 isInvalid={touched.address && errors.address}
-/>
+
 <Form.Control.Feedback type="invalid">
                                             {errors.address}
                                         </Form.Control.Feedback>

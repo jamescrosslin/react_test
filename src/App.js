@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
 const [theme, setTheme] = useState('light');
 
 class App extends Component {
@@ -20,28 +19,8 @@ class App extends Component {
   }
 }
 
-export default App;
-
-function App() {
-  return (
-    <div className="App">
-      Hello React!
-    </div>
-  );
-}
-
-export default App;
 
 import Navbar from './Navbar';
-
-function App() {
-  return (
-    <div className="App">
-      <h1>Learning React</h1>
-      Hello World!
-    </div>
-  );
-}
 
 export default App;
 
@@ -296,3 +275,164 @@ const AppNavigator = createStackNavigator(
 );
 
 export default createAppContainer(AppNavigator);
+
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {};  
+  }
+  componentWillMount(){
+      if(sessionStorage.getItem('access_token') != null && sessionStorage.getItem('id_token') != null){
+          this.setState({loggedIn: true}); 
+      } 
+  }
+  render() {
+    return (
+        <BrowserRouter>
+          <div>
+            <title>Webshop</title> 
+            <NavBar/>
+            <Switch>
+                    {/*Routes need to be include in App.js otherwise root can't find the paths*/}
+                    <Route exact path='/' component={Home}/>
+                    <Route exact path='/categories' component={Categories}/>
+                    <Route exact path='/login' component={Login}/>
+                    <Route exact path='/register' component={Register}/>
+                    {this.state.loggedIn == true ? <Route exact path='/logout' component={Logout}/> : null}
+                    <Route render={function(){
+                        return (<NotFound/>); 
+                    }}/>
+                </Switch>
+              <Footer/>
+          </div>  
+        </BrowserRouter>
+    );
+  }
+}
+
+import React from 'react';
+import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+ 
+import Login from './Login';
+import Dashboard from './Dashboard';
+import Home from './Home';
+ 
+function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <div>
+          <div className="header">
+            <NavLink exact activeClassName="active" to="/">Home</NavLink>
+            <NavLink activeClassName="active" to="/login">Login</NavLink><small>(Access without token only)</small>
+            <NavLink activeClassName="active" to="/dashboard">Dashboard</NavLink><small>(Access with token only)</small>
+          </div>
+          <div className="content">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/login" component={Login} />
+              <Route path="/dashboard" component={Dashboard} />
+            </Switch>
+          </div>
+        </div>
+      </BrowserRouter>
+    </div>
+  );
+}
+
+import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  Button,
+  TouchableOpacity,
+} from "react-native";
+ 
+export default function App() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+ 
+  return (
+    <View style={styles.container}>
+      <Image style={styles.image} source={require("./assets/log2.png")} />
+ 
+      <StatusBar style="auto" />
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.TextInput}
+          placeholder="Email."
+          placeholderTextColor="#003f5c"
+          onChangeText={(email) => setEmail(email)}
+        />
+      </View>
+ 
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.TextInput}
+          placeholder="Password."
+          placeholderTextColor="#003f5c"
+          secureTextEntry={true}
+          onChangeText={(password) => setPassword(password)}
+        />
+      </View>
+ 
+      <TouchableOpacity>
+        <Text style={styles.forgot_button}>Forgot Password?</Text>
+      </TouchableOpacity>
+ 
+      <TouchableOpacity style={styles.loginBtn}>
+        <Text style={styles.loginText}>LOGIN</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+ 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+ 
+  image: {
+    marginBottom: 40,
+  },
+ 
+  inputView: {
+    backgroundColor: "#FFC0CB",
+    borderRadius: 30,
+    width: "70%",
+    height: 45,
+    marginBottom: 20,
+ 
+    alignItems: "center",
+  },
+ 
+  TextInput: {
+    height: 50,
+    flex: 1,
+    padding: 10,
+    marginLeft: 20,
+  },
+ 
+  forgot_button: {
+    height: 30,
+    marginBottom: 30,
+  },
+ 
+  loginBtn: {
+    width: "80%",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 40,
+    backgroundColor: "#FF1493",
+  },
+});
+export default App;
