@@ -12,7 +12,7 @@ module.exports = {
             "jsx": true
         },
         "ecmaVersion": 12,
-        "sourceType": "module"
+        "sourceType": "module"Which country does the electronic music duo "The Knife" originate from? 
     },
     "plugins": [
         "react"

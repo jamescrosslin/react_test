@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@popperjs/core": "^2.6.0",
     "bootstrap": "^5.0.0-beta1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "react": "^17.0.1",
     "react-autocomplete": "^1.8.1",
@@ -21,5 +24,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbowne1/react_test.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "gbowne1",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gbowne1/react_test/issues"
+  },
+  "homepage": "https://github.com/gbowne1/react_test#readme"
 }

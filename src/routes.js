@@ -11,7 +11,6 @@ import ProductListView from 'src/views/product/ProductListView';
 import RegisterView from 'src/views/auth/RegisterView';
 import SettingsView from 'src/views/settings/SettingsView';
 
-import React from 'react';
 import { Route, Router } from 'react-router-dom';
 import Home from './Home';
 import Callback from './Callback';

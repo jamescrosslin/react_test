@@ -23,7 +23,7 @@ import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
 
-unction Dashboard(props) {
+function Dashboard(props) {
  
   // handle click event of logout button
   const handleLogout = () => {    
@@ -127,7 +127,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     display: 'flex',
     overflow: 'auto',
-    flexDirection: 'column',/* eslint-disable */
+    flexDirection: 'column',
+  },
+    
+    /* eslint-disable */
     // This optional code is used to register a service worker.
     // register() is not called by default.
     
