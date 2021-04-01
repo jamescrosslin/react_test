@@ -18,10 +18,7 @@ const styleSheet = `
     background-color: 'white';
     border-bottom: 1px solid blue;
   }
-  #user-img {
-    height: 100px;
-    width: 100px;
-    padding-right: 10px;
+  #user-img {:
   }
   #user-detail-row {
     flex:1;
@@ -29,6 +26,6 @@ const styleSheet = `
     justify-content: 'space-around';
   }
   #button-profile {
-    width: 150px;
-  }
-`;
+    width: 150px;:
+  
+  export ()

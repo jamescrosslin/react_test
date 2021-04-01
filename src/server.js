@@ -186,7 +186,7 @@ var db = require('knex')({
 });
 
 // Controllers - aka, the db queries
-const main = require('./controllers/main')
+const main = require('./router/controllers/main')
 
 // App
 const app = express()

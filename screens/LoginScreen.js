@@ -6,8 +6,7 @@ import React, {useState, createRef} from 'react';
 import {
   StyleSheet,
   TextInput,
-  View,
-  Text,
+  View,Text,
   ScrollView,
   Image,
   Keyboard,
@@ -19,7 +18,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import Loader from './Components/Loader';
 
-const LoginScreen = ({navigation}) => {
+function LoginScreen({ navigation }) {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -39,9 +38,9 @@ const LoginScreen = ({navigation}) => {
     }
     setLoading(true);
     let dataToSend = {
-          user_email: userEmail,
-          user_password: userPassword
-        };
+      user_email: userEmail,
+      user_password: userPassword
+    };
     let formBody = [];
     for (let key in dataToSend) {
       let encodedKey = encodeURIComponent(key);
@@ -55,8 +54,7 @@ const LoginScreen = ({navigation}) => {
       body: formBody,
       headers: {
         //Header Defination
-        'Content-Type':
-          'application/x-www-form-urlencoded;charset=UTF-8',
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       },
     })
       .then((response) => response.json())
@@ -68,7 +66,7 @@ const LoginScreen = ({navigation}) => {
         if (responseJson.status == 1) {
           AsyncStorage.setItem(
             'user_id',
-             responseJson.data[0].user_id
+            responseJson.data[0].user_id
           );
           console.log(responseJson.data[0].user_id);
           navigation.replace('DrawerNavigationRoutes');
@@ -96,7 +94,7 @@ const LoginScreen = ({navigation}) => {
         }}>
         <View>
           <KeyboardAvoidingView enabled>
-            <View style={{alignItems: 'center'}}>
+            <View style={{ alignItems: 'center' }}>
               <Image
                 source={require('../Image/aboutreact.png')}
                 style={{
@@ -104,8 +102,7 @@ const LoginScreen = ({navigation}) => {
                   height: 100,
                   resizeMode: 'contain',
                   margin: 30,
-                }}
-              />
+                }} />
             </View>
             <View style={styles.SectionStyle}>
               <TextInput
@@ -116,20 +113,15 @@ const LoginScreen = ({navigation}) => {
                 autoCapitalize="none"
                 keyboardType="email-address"
                 returnKeyType="next"
-                onSubmitEditing={() =>
-                  passwordInputRef.current &&
-                  passwordInputRef.current.focus()
-                }
+                onSubmitEditing={() => passwordInputRef.current &&
+                  passwordInputRef.current.focus()}
                 underlineColorAndroid="#f000"
-                blurOnSubmit={false}
-              />
+                blurOnSubmit={false} />
             </View>
             <View style={styles.SectionStyle}>
               <TextInput
                 style={styles.inputStyle}
-                onChangeText={
-                  (UserPassword) => setUserPassword(UserPassword)
-                }
+                onChangeText={(UserPassword) => setUserPassword(UserPassword)}
                 placeholder="Enter Password" //12345
                 placeholderTextColor="#8b9cb5"
                 keyboardType="default"
@@ -138,8 +130,7 @@ const LoginScreen = ({navigation}) => {
                 blurOnSubmit={false}
                 secureTextEntry={true}
                 underlineColorAndroid="#f000"
-                returnKeyType="next"
-              />
+                returnKeyType="next" />
             </View>
             {errortext != '' ? (
               <Text style={styles.errorTextStyle}>
@@ -151,20 +142,20 @@ const LoginScreen = ({navigation}) => {
               activeOpacity={0.5}
               onPress={handleSubmitPress}>
               <Text style={styles.buttonTextStyle}>
-                LOGIN
+                          LOGIN
               </Text>
             </TouchableOpacity>
             <Text
               style={styles.registerTextStyle}
               onPress={() => navigation.navigate('RegisterScreen')}>
-              New Here ? Register
+                 New Here?Register
             </Text>
           </KeyboardAvoidingView>
         </View>
       </ScrollView>
     </View>
   );
-};
+}
 export default LoginScreen;
 
 const styles = StyleSheet.create({

@@ -151,7 +151,7 @@ const useStyles = makeStyles((theme) => ({
       window.location.hostname.match(
         /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
       )
-    );
+    ),
     
     export function register(config) {
       if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
@@ -267,8 +267,7 @@ const useStyles = makeStyles((theme) => ({
   },
   fixedHeight: {
     height: 240,
-  },
-}));
+  {
 
 export default function Dashboard() {
   const classes = useStyles();

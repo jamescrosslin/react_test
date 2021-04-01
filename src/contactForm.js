@@ -229,19 +229,25 @@ isInvalid={touched.address && errors.address}
             </Formik>
         </div>
     );
-} ContactForm.propTypes = {
+} 
+
+ContactForm.propTypes = {
     edit: PropTypes.bool,
     onSave: PropTypes.func,
     onCancelAdd: PropTypes.func,
     onCancelEdit: PropTypes.func,
     contact: PropTypes.object
-}const mapStateToProps = state => {
+}
+const mapStateToProps = state => {
     return {
         contacts: state.contacts,
     }
-}const mapDispatchToProps = dispatch => ({
+}
+const mapDispatchToProps = dispatch => ({
     setContacts: contacts => dispatch(setContacts(contacts))
-})export default connect(
+})
+
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(ContactForm);

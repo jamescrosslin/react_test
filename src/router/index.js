@@ -1,7 +1,7 @@
-const appController = require('../controllers').app;
-const appItemsController = require('../controllers').appItems;
+import { app as appController } from './router/controllers/appController.js';
+import { appItems as appItemsController } from './router/controllers';
 
-module.exports = (app) => {
+export default (app) => {
   app.get('/api', (req, res) => res.status(200).send({
     message: 'Welcome to the app API!',
   }));

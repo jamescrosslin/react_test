@@ -1,11 +1,21 @@
 import React from 'react';
+
+import axios from 'axios';
  
 function Home() {
-  return (
+  
     <div>
       Welcome to the Home Page!
     </div>
-  );
+  ;
 }
- 
-export default Home;
+
+
+    useEffect(() => {
+      axios.get('/api/hello')
+        .then(res => setState(res.data))
+    }, [])
+
+    const [state, setState] = useState('')
+
+  export default Home;
