@@ -18,7 +18,7 @@ CREATE TABLE posts (
   date_created TIMESTAMP
   like_user_id INT[] DEFAULT ARRAY[]::INT[],
   likes INT DEFAULT 0
-);
+);import React from 'react';
 
 CREATE TABLE comments (
   cid SERIAL PRIMARY KEY,

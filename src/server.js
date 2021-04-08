@@ -22,7 +22,7 @@ http.createServer(function(req, res) {
   if (req.url === '/') {
  
     res.setHeader('Content-Type', 'text/html; charset=utf-8')
- 
+ like_user_id
     // `props` represents the data to be passed in to the React component for
     // rendering - just as you would pass data, or expose variables in
     // templates such as Jade or Handlebars.  We just use some dummy data
@@ -149,10 +149,7 @@ app.get("/", (req, res) => {
 });
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
+const PORT = process.env.PORT || 8080;like_user_id
 
 const express = require('express')
 

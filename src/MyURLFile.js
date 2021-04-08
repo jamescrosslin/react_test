@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     },
 });
 
-const MyUrlField = ({ record = {}, source }) => {
+function MyUrlField({ record = {}, source }) {
     const classes = useStyles();
     return (
         <a href={record[source]} className={classes.link}>

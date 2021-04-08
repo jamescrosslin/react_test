@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
-
-
+import flash from 'connect-flash';
 import Home from './Home';
-import { StatusBar } from "expo-status-bar";
-export default App;
+import exhbs from 'express-handlebars';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './theme';
 
@@ -38,16 +36,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var expressValidator = require('express-validator');
-var flash = require('connect-flash');
+
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var postgres = require('postgres');
 postgres.connect('postgres://localhost/loginapp');
-var db = postgres, async,connection;
+var db = postgres ; async,connection;
 
 var routes = require('./router/index').default;
-var users = require('./router/users');
+var users = require('/router/users');
 
 // Init App
 var app = Express();
@@ -133,3 +131,5 @@ server.listen(process.env.PORT || 3000, function () {
 +       <Resource name="users" list={UserList} />
   </Admin>
 ;
+
+export default 'App'
